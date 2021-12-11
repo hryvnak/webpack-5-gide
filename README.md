@@ -13,7 +13,7 @@ npm init -y
 3. Устанавливаем **webpack** и **webpack-cli** локально.
 
 ```
-`npm install webpack webpack-cli --save-dev`
+npm install webpack webpack-cli --save-dev
 ```
 
 4. Cоздаем в корне проекта папку **src**, где будет лежать js-файл/ы.
