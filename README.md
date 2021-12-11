@@ -29,9 +29,7 @@
 ## Подготовка package.json 
 
 `{`
-	`"name": "1",`
-	`"version": "1.0.0",`
-	`"description": "",`
+	`...`
 -	`"main": "index.js",`
 +	`"private": true,`
 	`"scripts": {`
@@ -39,13 +37,7 @@
 +		`"watch": "webpack --watch",`
 +		`"build": "webpack",`
 	`},`
-	`"keywords": [],`
-	`"author": "",`
-	`"license": "ISC",`
-	`"devDependencies": {`
-		`"webpack": "^5.65.0",`
-		`"webpack-cli": "^4.9.1",`
-	`}`
+	`...`
 `}`
 
 ---
@@ -58,16 +50,11 @@
 
 **webpack.config.js**
 + `const HtmlWebpackPlugin = require('html-webpack-plugin');`
-`const path = require('path');`
+`...`
 
 `module.exports = {`
-	`entry: './src/index.js',`
-	`output: {`
-		`path: path.resolve(__dirname, './dist'),`
-		`filename: 'index_bundle.js',`
-	`},`
+	`...`
 +	`plugins: [new HtmlWebpackPlugin()],`
-`mode: 'development',`
 `};`
 
 ---
@@ -76,17 +63,9 @@
 `npm install --save-dev webpack-dev-server`
 
 **webpack.config.js**
-`const HtmlWebpackPlugin = require('html-webpack-plugin');`
-`const path = require('path');`
 
 `module.exports = {`
-	`entry: './src/index.js',`
-	`output: {`
-		`path: path.resolve(__dirname, './dist'),`
-		`filename: 'index_bundle.js',`
-	`},`
-	`plugins: [new HtmlWebpackPlugin()],`
-	`mode: 'development',`
+	`...`
 +	`devServer: {`
 + 		`static: './dist',`
 + 	`},`
@@ -94,8 +73,33 @@
 
 **package.json**
 `"scripts": {`
-	`"watch": "webpack --watch",`
-	`"build": "webpack",`
+	`...`
 +	`"start": "webpack serve --open"`
 `},`
-"# webpack-gide" 
+
+---
+##Установка babel-loader
+
+`npm install -D babel-loader @babel/core @babel/preset-env`
+
+**webpack.config.js**
+
+`module.exports = {`
+	`...`
+	`module: {`
+		`rules: [`
+			`{`
+				`test: /\.m?js$/,`
+				`exclude: /node_modules/,`
+				`use: {`
+						`loader: 'babel-loader',`
+						`options: {`
+						`presets: [`
+							`['@babel/preset-env', { targets: "defaults" }]`
+						`]`
+					`}`
+				`}`
+			`}`
+		`]`
+	`}`
+`};`
