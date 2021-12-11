@@ -11,7 +11,7 @@ npm init -y
 ```
 
 3. Устанавливаем **webpack** и **webpack-cli** локально.
-4. 
+
 ```
 `npm install webpack webpack-cli --save-dev`
 ```
