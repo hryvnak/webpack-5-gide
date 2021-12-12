@@ -10,6 +10,8 @@
 npm init -y
 ```
 
+3. Cоздаем в корне проекта папку **src**, где будет лежать js-файл/ы.
+
 ## Первоначальная настройка webpack
 
 1. Устанавливаем **webpack** и **webpack-cli** локально.
@@ -18,20 +20,18 @@ npm init -y
 npm install webpack webpack-cli --save-dev
 ```
 
-2. Cоздаем в корне проекта папку **src**, где будет лежать js-файл/ы.
-
-3. Создаем в корне проекта конфигурационный файл **webpack.config.js**:
+2. Создаем в корне проекта конфигурационный файл **webpack.config.js**:
 
 ```
 const path = require('path');
 
 module.exports = {
-	entry: './src/index.js',
-	output: {
-		path: path.resolve(__dirname, './dist'),
-		filename: 'index_bundle.js',
-	},
-	mode: 'development',
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: 'index_bundle.js',
+  },
+  mode: 'development',
 };
 ```
 
@@ -39,15 +39,15 @@ module.exports = {
 
 ```
 {
-   ...
-	// Удаляем "main": "index.js",
-	"private": true,
-	"scripts": {
-		// удаляем "test": "echo \"Error: no test specified\" && exit 1",
-		"watch": "webpack --watch",
-		"build": "webpack",
-	},
-	...
+  ...
+  // Удаляем "main": "index.js",
+  "private": true,
+  "scripts": {
+    // Удаляем "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack",
+  },
+  ...
 }
 ```
 
@@ -61,23 +61,23 @@ npm install -D babel-loader @babel/core @babel/preset-env
 
 ```
 module.exports = {
-	...
-	module: {
-		rules: [
-			{
-				test: /\.m?js$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: [
-							['@babel/preset-env', { targets: "defaults" }]
-						]
-					}
-				}
-			}
-		]
-	}
+  ...
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env', { targets: "defaults" }]
+            ]
+          }
+        }
+      }
+    ]
+  }
 };
 ```
 
@@ -95,8 +95,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 ...
 
 module.exports = {
-   ...
-	plugins: [new HtmlWebpackPlugin()],
+  ...
+  plugins: [new HtmlWebpackPlugin()],
 };
 ```
 
@@ -108,17 +108,17 @@ module.exports = {
 
 ```
 module.exports = {
-	...
-	devServer: {
-		static: './dist',
-	},
+  ...
+  devServer: {
+    static: './dist',
+  },
 };
 ```
 
 **package.json**
 ```
 "scripts": {
-	...
-	"start": "webpack serve --open"
+  ...
+  "start": "webpack serve --open"
 },
 ```
