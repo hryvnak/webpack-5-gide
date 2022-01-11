@@ -122,3 +122,20 @@ module.exports = {
   "start": "webpack serve --open"
 },
 ```
+
+## Установка eslint-webpack-plugin
+
+`npm install eslint --save-dev`
+`npm install eslint-webpack-plugin --save-dev`
+`npx eslint --init`
+
+**webpack.config.js**
+```
+const ESLintPlugin = require('eslint-webpack-plugin');
+
+module.exports = {
+  // ...
+  plugins: [new ESLintPlugin()],
+  // ...
+};
+```
