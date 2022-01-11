@@ -125,9 +125,11 @@ module.exports = {
 
 ## Установка eslint-webpack-plugin
 
-`npm install eslint --save-dev`
-`npm install eslint-webpack-plugin --save-dev`
-`npx eslint --init`
+```
+`npm install eslint --save-dev
+npm install eslint-webpack-plugin --save-dev
+npx eslint --init
+```
 
 **webpack.config.js**
 ```
