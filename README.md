@@ -30,6 +30,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'index_bundle.js',
+    clean: true, // очищаем папку /dist перед каждой сборкой, чтобы генерировались только используемые файлы
   },
   mode: 'development',
 };
