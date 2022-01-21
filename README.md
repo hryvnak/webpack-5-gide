@@ -96,7 +96,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   ...
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [new HtmlWebpackPlugin(
+    {
+				// https://github.com/jantimon/html-webpack-plugin#options
+				hash: true, // добавляем уникальный хэш компиляции веб-пакета ко всем включенным сценариям и файлам CSS. Это полезно для очистки кеша
+	      template: './src/index.html', // относительный или абсолютный путь webpack к шаблону
+			}
+  )],
 };
 ```
 
