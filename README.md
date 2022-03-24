@@ -152,3 +152,32 @@ module.exports = {
   // ...
 };
 ```
+
+## Установка less-loader
+
+Встановлюємо **style-loader**:
+
+```
+npm install --save-dev style-loader
+```
+
+Встановлюємо **css-loader**:
+
+```
+npm install --save-dev css-loader
+```
+
+Встановлюємо **less** і **less-loader**:
+
+```
+npm install less less-loader --save-dev
+```
+
+В **index.js** імпортуємо стилі:
+
+```
+import "./less/style.less";
+```
+
+І виконуємо команду ```npm run build```
+
