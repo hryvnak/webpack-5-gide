@@ -43,7 +43,6 @@ module.exports = {
   ...
   // Удаляем "main": "index.js",
   "private": true,
-  "type": "module",
   "scripts": {
     // Удаляем "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
