@@ -173,6 +173,27 @@ npm install --save-dev css-loader
 npm install less less-loader --save-dev
 ```
 
+**webpack.config.js**
+```
+module.exports = {
+  // ...
+  module: {
+    rules: [
+      {
+        test: /\.less$/i,
+        use: [
+          // compiles Less to CSS
+          "style-loader",
+          "css-loader",
+          "less-loader",
+        ],
+      },
+    ],
+  },
+}
+```
+
+
 В **index.js** імпортуємо стилі:
 
 ```
