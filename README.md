@@ -1,26 +1,26 @@
 # Webpack 5
 
-## Создание проекта
+## Створення проекту
 
-1. Создаём папку и переходим в неё.
-2. Инициализируем проект.
+1. Створюємо папку и переходимо в неї.
+2. Ініціалізуємо проєкт.
 
 ```
 npm init -y
 ```
 
-3. Cоздаем в корне проекта папку **src**, где будет лежать js-файл/ы.
-4. Создаём в папке **src** файл **index.js** и **index.html**.
+3. Створюємо в корені проєкта папку **src**, де будуть лежати js-файл/и.
+4. Створюємо в папці **src** файл **index.js** і **index.html**.
 
-## Первоначальная настройка webpack
+## Початкове налаштування webpack
 
-1. Устанавливаем **webpack** и **webpack-cli** локально.
+1. Встановлюємо **webpack** і **webpack-cli** локально.
 
 ```
 npm install webpack webpack-cli --save-dev
 ```
 
-2. Создаем в корне проекта конфигурационный файл **webpack.config.js**:
+2. Створюємо в корені проєкта конфігураційний файл **webpack.config.js**:
 
 ```
 const path = require('path');
@@ -30,21 +30,21 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'index_bundle.js',
-    clean: true, // очищаем папку /dist перед каждой сборкой, чтобы генерировались только используемые файлы
+    clean: true, // очищуємо папку /dist перед кожною зборкою, щоб генерувались тільки файлы, що використовуються
   },
   mode: 'development',
 };
 ```
 
-## Подготовка package.json 
+## Підготовка package.json 
 
 ```
 {
   ...
-  // Удаляем "main": "index.js",
+  // Видаляємо "main": "index.js",
   "private": true,
   "scripts": {
-    // Удаляем "test": "echo \"Error: no test specified\" && exit 1",
+    // Видаляємо "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
     "build": "webpack",
   },
@@ -82,9 +82,9 @@ module.exports = {
 };
 ```
 
-## Установка плагина HtmlWebpackPlugin
+## Установка плагіна HtmlWebpackPlugin
 
- *(генерирует **index.html**, который будет содержать ссылку на "собранный" скрипт).*
+ *(генерує **index.html**, який буде містити посилання на "зібраний" скрипт).*
 
 ```
 npm install --save-dev html-webpack-plugin
@@ -100,8 +100,8 @@ module.exports = {
   plugins: [new HtmlWebpackPlugin(
     {
       // https://github.com/jantimon/html-webpack-plugin#options
-      hash: true, // добавляем уникальный хэш компиляции веб-пакета ко всем включенным сценариям и файлам CSS. Это полезно для очистки кеша
-      template: './src/index.html', // относительный или абсолютный путь webpack к шаблону
+      hash: true, // додаємо унікальний хеш компіляції веб-пакета до всіх включених сценаріїв і файлів CSS. Це корисно для очищення кешу
+      template: './src/index.html', // відносний чи абсолютний шлях webpack к шаблону
     }
   )],
 };
