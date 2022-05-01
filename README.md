@@ -209,3 +209,19 @@ https://webpack.js.org/loaders/html-loader/#sources
 npm install --save-dev html-loader
 ```
 
+**webpack.config.js**
+
+```
+module.exports = {
+  // ...
+  module: {
+    rules: [
+      // ...
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      }
+    ]
+  }
+}
+
