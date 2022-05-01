@@ -202,3 +202,10 @@ import "./less/style.less";
 
 І виконуємо команду ```npm run build```
 
+## Установка html-loader
+https://webpack.js.org/loaders/html-loader/#sources
+Я використовувала, щоб картинки зявилися в папці dist
+```
+npm install --save-dev html-loader
+```
+
